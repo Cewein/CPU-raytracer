@@ -64,6 +64,8 @@ bool hit(ray r, float tmin, float tmax, hitRecord * rec, hitableList hitList)
 
     *rec = *tempRec;
 
+    delete tempRec;
+
 
     return hitAny;
 }
@@ -137,7 +139,7 @@ vec3 color(ray r, hitableList hitList, vec2 st, int sample)
         }
         if(rec->mat == 1)
         {
-            float globalFuzz = 0.2;// change to 0 for full reflection
+            float globalFuzz = 0.0;// change to 0 for full reflection
             vec3 reflected = reflect(unitDirection, rec->normal);
             r = ray(rec->p, reflected + globalFuzz*randInUnitSphere(st,sample));
             att *= rec->color; // if  att *= rec.color * 50; then the shpere become a light source o_O
@@ -207,8 +209,8 @@ vec3 trace(vec2 coord, vec2 resolution, int maxSample)
     cam.o = vec3(0.);
     
     sphere sList[] = {sphere(vec3(0.,0.,-1.5),0.5,0,vec3(0.8,0.3,0.3)),
-        sphere(vec3(-1.,.0,-1.5),0.5,1,vec3(0.8,0.8,0.8)),
-        sphere(vec3(1.0,.0,-1.5),0.5,2,vec3(0.8,0.6,0.2)),
+        sphere(vec3(-1.,.0,-1.5),0.5,2,vec3(0.8,0.8,0.8)),
+        sphere(vec3(1.0,.0,-1.5),0.5,1,vec3(0.8,0.6,0.2)),
         sphere(vec3(0.,-100.5,-1.),100.,0,vec3(0.8,0.8,0.0)),
         sphere(vec3(0.,0.5,-10.),5.,1,vec3(0.8,0.6,0.2))};
 
