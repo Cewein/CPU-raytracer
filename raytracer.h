@@ -32,6 +32,9 @@ struct hitRecord {
     vec3 normal;
     int mat;
     vec3 color;
+    hitRecord()
+    {
+    }
 };
 
 struct sphere 

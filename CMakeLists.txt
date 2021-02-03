@@ -8,7 +8,7 @@ project(raytracer VERSION 1.0 LANGUAGES CXX)
 add_subdirectory("CxxSwizzle")
 
 # Ajoutez une source à l'exécutable de ce projet.
-add_executable (raytracer "raymarcher.cpp" "raymarcher.h")
+add_executable (raytracer "raytracer.cpp" "raytracer.h")
 
 target_include_directories(raytracer PUBLIC
                           "${PROJECT_BINARY_DIR}"
