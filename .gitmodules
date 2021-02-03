@@ -1,0 +1,3 @@
+[submodule "CxxSwizzle"]
+	path = CxxSwizzle
+	url = https://github.com/gwiazdorrr/CxxSwizzle.git
